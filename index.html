@@ -12,12 +12,18 @@
 
 <body>
 
+    <!-- Custom Cursor -->
+    <div class="cursor-dot" data-cursor-dot></div>
+    <div class="cursor-outline" data-cursor-outline></div>
+
     <nav class="navbar">
         <div class="logo">My<span>Profile</span></div>
         <ul class="nav-links">
             <li><a href="#home">Home</a></li>
             <li><a href="#about">About</a></li>
             <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#experience">Experience</a></li>
             <li><a href="#contact">Contact</a></li>
         </ul>
         <div class="hamburger">
@@ -31,7 +37,7 @@
             <div class="hero-content">
                 <p class="greeting">Hello, I'm</p>
                 <h1 class="name">Shashanka Biswas</h1>
-                <h2 class="title">Aspiring Professional & Tech Enthusiast</h2>
+                <h2 class="title"><span id="typed-text"></span></h2>
                 <div class="cta-buttons">
                     <a href="#contact" class="btn primary-btn">Get In Touch</a>
                     <a href="#about" class="btn secondary-btn">Learn More</a>
@@ -95,30 +101,123 @@
             </div>
         </section>
 
+        <!-- Projects Section -->
+        <section id="projects" class="projects-section">
+            <div class="section-header">
+                <h2>Featured Projects</h2>
+                <div class="underline"></div>
+            </div>
+            <div class="projects-grid">
+                <div class="project-card glass-panel">
+                    <div class="project-image">
+                        <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=600&q=80" alt="Web App Development">
+                    </div>
+                    <div class="project-content">
+                        <h3>E-Commerce Web App</h3>
+                        <p>A full-stack e-commerce solution with dynamic cart, checkout, and inventory management built for high performance.</p>
+                        <button class="btn secondary-btn project-btn" data-title="E-Commerce Web App" data-image="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=800&q=80" data-description="This comprehensive e-commerce platform was built to handle high-volume traffic with seamless user experiences. It features a fully dynamic shopping cart, a secure multi-step checkout process, real-time inventory management, and an integrated payment gateway. The frontend is optimized for speed and SEO, while the backend provides a robust admin dashboard for order tracking and analytics. <br><br><strong>Key Features:</strong><ul><li>Real-time inventory sync</li><li>Stripe Payment Integration</li><li>Admin Dashboard</li><li>Responsive Design</li></ul>">View Details</button>
+                    </div>
+                </div>
+                <div class="project-card glass-panel">
+                    <div class="project-image">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=600&q=80" alt="Data Analytics Dashboard">
+                    </div>
+                    <div class="project-content">
+                        <h3>Analytics Dashboard</h3>
+                        <p>Interactive data visualization dashboard that tracks real-time metrics, built with responsive charts and dark mode support.</p>
+                        <button class="btn secondary-btn project-btn" data-title="Analytics Dashboard" data-image="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80" data-description="A powerful data analytics dashboard designed to visualize complex datasets in an easy-to-understand format. It connects to various APIs to fetch real-time metrics, displaying them through interactive charts and graphs. Users can filter data by date ranges, export reports, and toggle between dark and light modes for comfortable viewing. <br><br><strong>Key Features:</strong><ul><li>Interactive Chart.js visualizations</li><li>Real-time data fetching</li><li>Customizable date range filters</li><li>PDF report exporting</li></ul>">View Details</button>
+                    </div>
+                </div>
+                <div class="project-card glass-panel">
+                    <div class="project-image">
+                        <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=600&q=80" alt="AI Interface">
+                    </div>
+                    <div class="project-content">
+                        <h3>AI Chat Interface</h3>
+                        <p>A sleek, modern interface integrating AI tools to streamline conversational interactions and data retrieval.</p>
+                        <button class="btn secondary-btn project-btn" data-title="AI Chat Interface" data-image="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=800&q=80" data-description="This project showcases a highly interactive AI chat interface built to connect with large language models. It provides a fluid, app-like experience with features such as typing indicators, message history persistence, markdown rendering for code blocks, and a glassmorphic design language. The goal was to create an interface that feels intuitive, fast, and visually stunning. <br><br><strong>Key Features:</strong><ul><li>Markdown & Syntax Highlighting</li><li>Message History & Local Storage</li><li>Typing Indicators & Smooth Scrolling</li><li>API Integration with AI Models</li></ul>">View Details</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience Timeline Section -->
+        <section id="experience" class="experience-section">
+            <div class="section-header">
+                <h2>My Journey</h2>
+                <div class="underline"></div>
+            </div>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content glass-panel">
+                        <h3>Web Development Assessment</h3>
+                        <p class="timeline-date">2026 - Present</p>
+                        <p>Exploring modern front-end technologies, AI-assisted development, and responsive design systems.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content glass-panel">
+                        <h3>Foundation Analyst</h3>
+                        <p class="timeline-date">2025 - 2026</p>
+                        <p>Analyzed NGO digital footprints to improve user experience, accessibility, and donor conversion rates.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content glass-panel">
+                        <h3>Tech Enthusiast</h3>
+                        <p class="timeline-date">2026 - Present</p>
+                        <p>Continuously learning about software engineering, artificial intelligence, and innovative technical solutions.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- Contact Section -->
         <section id="contact" class="contact-section glass-panel">
             <div class="section-header">
                 <h2>Contact Me</h2>
                 <div class="underline"></div>
             </div>
-            <div class="contact-content">
-                <p>I'm always open to discussing new opportunities, collaborations, or simply having a chat. Feel free
-                    to reach out!</p>
-                <div class="contact-info">
-                    <a href="tel:+917439971928" class="contact-link">
-                        <i class="fas fa-phone"></i> +91 7439971928
-                    </a>
+            <div class="contact-grid">
+                <div class="contact-content">
+                    <p>I'm always open to discussing new opportunities, collaborations, or simply having a chat. Feel free
+                        to reach out!</p>
+                    <div class="contact-info">
+                        <a href="tel:+917439971928" class="contact-link">
+                            <i class="fas fa-phone"></i> +91 7439971928
+                        </a>
 
-                    <a href="mailto:shashankam25@gmail.com" class="contact-link">
-                        <i class="fas fa-envelope"></i> shashankam25@gmail.com
-                    </a>
-                    <a href="https://www.linkedin.com/in/shashanka-biswas-b09967395" target="_blank"
-                        class="contact-link">
-                        <i class="fab fa-linkedin"></i> LinkedIn Profile
-                    </a>
-                    <a href="https://github.com/Shashanka25" target="_blank" class="contact-link">
-                        <i class="fab fa-github"></i> GitHub Portfolio
-                    </a>
+                        <a href="mailto:shashankam25@gmail.com" class="contact-link">
+                            <i class="fas fa-envelope"></i> shashankam25@gmail.com
+                        </a>
+                        <a href="https://www.linkedin.com/in/shashanka-biswas-b09967395" target="_blank"
+                            class="contact-link">
+                            <i class="fab fa-linkedin"></i> LinkedIn Profile
+                        </a>
+                        <a href="https://github.com/Shashanka25" target="_blank" class="contact-link">
+                            <i class="fab fa-github"></i> GitHub Portfolio
+                        </a>
+                    </div>
+                </div>
+                <div class="contact-form-container">
+                    <form class="contact-form">
+                        <div class="input-group">
+                            <input type="text" id="name" required placeholder=" ">
+                            <label for="name">Your Name</label>
+                        </div>
+                        <div class="input-group">
+                            <input type="email" id="email" required placeholder=" ">
+                            <label for="email">Your Email</label>
+                        </div>
+                        <div class="input-group">
+                            <textarea id="message" rows="4" required placeholder=" "></textarea>
+                            <label for="message">Your Message</label>
+                        </div>
+                        <button type="submit" class="btn primary-btn submit-btn">Send Message <i class="fas fa-paper-plane"></i></button>
+                    </form>
                 </div>
             </div>
         </section>
@@ -128,6 +227,28 @@
         <p>&copy; 2026 Shashanka Biswas. Built with ❤️ and AI.</p>
     </footer>
 
+    <!-- Project Modal -->
+    <div class="modal-overlay" id="project-modal">
+        <div class="modal-content glass-panel">
+            <button class="close-modal"><i class="fas fa-times"></i></button>
+            <div class="modal-image">
+                <img id="modal-img" src="" alt="Project Image">
+            </div>
+            <div class="modal-body">
+                <h2 id="modal-title">Project Title</h2>
+                <p id="modal-desc">Project description goes here.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Floating Action Button -->
+    <a href="#contact" class="fab-btn">
+        <i class="fas fa-comment-dots"></i>
+    </a>
+
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.1/vanilla-tilt.min.js"></script>
     <script src="script.js"></script>
 </body>
 

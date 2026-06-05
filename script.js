@@ -36,29 +36,142 @@ window.addEventListener('scroll', () => {
     }
 });
 
-// Simple Scroll Reveal Animation (Intersection Observer)
-const revealElements = document.querySelectorAll('.glass-panel, .skill-card');
+// --- Custom Cursor ---
+const cursorDot = document.querySelector('[data-cursor-dot]');
+const cursorOutline = document.querySelector('[data-cursor-outline]');
 
-const revealOptions = {
-    threshold: 0.1,
-    rootMargin: "0px 0px -50px 0px"
-};
+window.addEventListener('mousemove', function (e) {
+    const posX = e.clientX;
+    const posY = e.clientY;
 
-const revealOnScroll = new IntersectionObserver(function(entries, observer) {
-    entries.forEach(entry => {
-        if (!entry.isIntersecting) {
-            return;
-        } else {
-            entry.target.style.opacity = 1;
-            entry.target.style.transform = "translateY(0)";
-            observer.unobserve(entry.target);
-        }
-    });
-}, revealOptions);
+    cursorDot.style.left = `${posX}px`;
+    cursorDot.style.top = `${posY}px`;
 
-revealElements.forEach(el => {
-    el.style.opacity = 0;
-    el.style.transform = "translateY(30px)";
-    el.style.transition = "opacity 0.6s ease-out, transform 0.6s ease-out";
-    revealOnScroll.observe(el);
+    // Add a slight delay for the outline using animate for a smoother trailing effect
+    cursorOutline.animate({
+        left: `${posX}px`,
+        top: `${posY}px`
+    }, { duration: 500, fill: "forwards" });
 });
+
+// --- Typing Effect ---
+const textArray = ["Web Designer", "AI Enthusiast", "Frontend Developer", "Problem Solver"];
+let textIndex = 0;
+let charIndex = 0;
+const typingTextElement = document.querySelector('.typing-text');
+let isDeleting = false;
+
+function type() {
+    const currentText = textArray[textIndex];
+    
+    if (isDeleting) {
+        typingTextElement.textContent = currentText.substring(0, charIndex - 1);
+        charIndex--;
+    } else {
+        typingTextElement.textContent = currentText.substring(0, charIndex + 1);
+        charIndex++;
+    }
+
+    let typeSpeed = 100;
+    
+    if (isDeleting) {
+        typeSpeed /= 2;
+    }
+
+    if (!isDeleting && charIndex === currentText.length) {
+        isDeleting = true;
+        typeSpeed = 2000; // Pause at end
+    } else if (isDeleting && charIndex === 0) {
+        isDeleting = false;
+        textIndex = (textIndex + 1) % textArray.length;
+        typeSpeed = 500; // Pause before start
+    }
+
+    setTimeout(type, typeSpeed);
+}
+
+// Start typing effect
+if(typingTextElement) {
+    setTimeout(type, 1000);
+}
+
+
+// --- ScrollReveal Animations ---
+ScrollReveal({
+    reset: false,
+    distance: '60px',
+    duration: 1500,
+    delay: 200
+});
+
+ScrollReveal().reveal('.hero-content .greeting, .section-header', { delay: 100, origin: 'left' });
+ScrollReveal().reveal('.hero-content .name, .hero-content .title', { delay: 200, origin: 'bottom' });
+ScrollReveal().reveal('.hero-content .cta-buttons', { delay: 300, origin: 'bottom' });
+ScrollReveal().reveal('.hero-image', { delay: 400, origin: 'right' });
+
+ScrollReveal().reveal('.about-content p, .contact-content', { delay: 200, origin: 'bottom' });
+ScrollReveal().reveal('.skill-card, .project-card, .timeline-item', { delay: 200, origin: 'bottom', interval: 200 });
+ScrollReveal().reveal('.contact-form-container', { delay: 300, origin: 'right' });
+
+// --- Project Modal Logic ---
+const modal = document.getElementById('project-modal');
+const closeBtn = document.querySelector('.close-modal');
+const modalTitle = document.getElementById('modal-title');
+const modalImg = document.getElementById('modal-img');
+const modalDesc = document.getElementById('modal-desc');
+const projectBtns = document.querySelectorAll('.project-btn');
+
+projectBtns.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        
+        // Get data from button
+        const title = btn.getAttribute('data-title');
+        const image = btn.getAttribute('data-image');
+        const desc = btn.getAttribute('data-description');
+        
+        // Populate modal
+        modalTitle.textContent = title;
+        modalImg.src = image;
+        modalDesc.innerHTML = desc;
+        
+        // Show modal
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden'; // Prevent background scrolling
+    });
+});
+
+// Close modal when clicking close button
+closeBtn.addEventListener('click', () => {
+    modal.classList.remove('active');
+    document.body.style.overflow = 'auto';
+});
+
+// Close modal when clicking outside content
+modal.addEventListener('click', (e) => {
+    if (e.target === modal) {
+        modal.classList.remove('active');
+        document.body.style.overflow = 'auto';
+    }
+});
+
+// --- Typed.js Initialization ---
+if (document.getElementById('typed-text')) {
+    new Typed('#typed-text', {
+        strings: ['Tech Enthusiast', 'Software Developer', 'Continuous Learner', 'Problem Solver'],
+        typeSpeed: 50,
+        backSpeed: 30,
+        backDelay: 2000,
+        loop: true
+    });
+}
+
+// --- Vanilla Tilt Initialization ---
+if (typeof VanillaTilt !== 'undefined') {
+    VanillaTilt.init(document.querySelectorAll(".skill-card, .project-card, .timeline-content"), {
+        max: 8,
+        speed: 400,
+        glare: true,
+        "max-glare": 0.15,
+    });
+}

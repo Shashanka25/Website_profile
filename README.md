@@ -10,8 +10,11 @@ A premium, highly interactive, and visually stunning personal portfolio website 
 - **📱 Fully Responsive**: Custom mobile-first responsive design featuring an animated navigation drawer for smaller screens.
 - **✨ Micro-Animations & Scroll Effects**:
   - **Morphed Hero Image**: A dynamic, organic morphing bubble shape for the profile picture.
+  - **Typewriter Effect**: Engaging, continuous typing animation in the hero section using Typed.js.
+  - **3D Card Tilts**: Premium interactive 3D tilt effects on skill and project cards powered by Vanilla-tilt.js.
+  - **Custom Cursor**: A smooth, stylized custom mouse cursor that follows user movements.
   - **Intersection Observer Animations**: Elements smoothly slide and fade into view as you scroll down the page.
-  - **Floating Badges**: Playful bobbings on tech emojis in the hero section.
+  - **Interactive Modals**: Clean, glassmorphic pop-up modals for displaying project details.
   - **Hover Micro-interactions**: Smooth transitions and lifts on active cards and links.
 - **📞 Integrated Contact Panel**: Quick-access interactive buttons linking directly to Phone, Email, LinkedIn, and GitHub profiles.
 
@@ -21,7 +24,8 @@ A premium, highly interactive, and visually stunning personal portfolio website 
 
 - **Structure**: Semantic HTML5
 - **Styling**: Vanilla CSS3 (CSS Variables, Flexbox/Grid, Keyframe Animations, Backdrop-filter, Responsive Media Queries)
-- **Logic**: Vanilla ES6+ JavaScript (Intersection Observer API, Mobile Toggle Listeners)
+- **Logic**: Vanilla ES6+ JavaScript (Intersection Observer API, Mobile Toggle Listeners, Custom Cursor Logic)
+- **Libraries**: Typed.js (Typing animation), Vanilla-tilt.js (3D card tilt), ScrollReveal.js (Scroll animations)
 
 ---
 
